@@ -1,5 +1,5 @@
 # LibSuperQi
-A Goland client library to integrate with SuperQi backend easily
+A Golang client library to integrate with SuperQi backend easily
 
 
 ## ⚙️ Installation
