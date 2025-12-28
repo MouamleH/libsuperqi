@@ -5,7 +5,7 @@ A Golang client library to integrate with SuperQi backend easily
 ## ⚙️ Installation
 
 ```shell
-go get -u github.com/mouamleh/libsuperqi
+go get -u github.com/mouamleh/libsuperqi@v1.0.0
 ```
 
 ## ⚡️ Usage
