@@ -92,6 +92,32 @@ func (client *Client) InquiryUserCardList(accessToken string) (InquiryUserCardLi
 	return body, err
 }
 
+func (client *Client) InquiryUserAccountList(accessToken string) (InquiryUserAccountListResponse, error) {
+	const path = "/v1/users/inquiryUserAccountList"
+	params := map[string]any{
+		"accessToken": accessToken,
+	}
+
+	headers, err := client.buildHeaders("POST", path, params)
+	if err != nil {
+		return InquiryUserAccountListResponse{}, err
+	}
+
+	response, err := client.sendRequest(path, "POST", headers, params)
+	if err != nil {
+		return InquiryUserAccountListResponse{}, err
+	}
+
+	var body InquiryUserAccountListResponse
+	err = json.Unmarshal(response, &body)
+
+	if err != nil {
+		return InquiryUserAccountListResponse{}, fmt.Errorf("failed to decode response body %w", err)
+	}
+
+	return body, err
+}
+
 func (client *Client) Pay(amount int, requestId, accessToken, customerId, orderDesc, notifyUrl string, productCode string) (PayResponse, error) {
 	const path = "/v1/payments/pay"
 	params := map[string]any{
